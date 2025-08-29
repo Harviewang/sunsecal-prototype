@@ -1,0 +1,102 @@
+body {
+    font-family: 'Source Sans Pro', 'Trebuchet MS', Arial;
+    font-size: 14px;
+    color: #37465e;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow: hidden;
+}
+
+a {
+  cursor: pointer;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 0px 9px 0px 0px;
+    vertical-align: bottom;
+}
+
+input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#outerContainer {
+    position: absolute;
+    width:1000px;
+    height:1500px;
+    overflow: hidden;
+    display: flex;
+}
+
+#mainPanel {
+    background-color: #d8d8d8;
+    opacity: 0; 
+    flex: 1;
+    overflow: hidden;
+}
+
+#topPanel {
+    z-index: 1;
+    height: 36px;
+    background-color: #FCFDFF;
+    border-bottom: 1px solid #CBD5E0;
+    user-select: none;
+}
+
+#interfaceControlFrame {
+    height: 100%;
+    display: flex;
+    opacity: 0;
+}
+
+.splitbar {
+    display: none;
+    position: absolute;
+    top: 0px;
+    width: 3px;
+    height: 100%;
+    cursor: ew-resize;
+    z-index: 5;
+    user-select: none;
+}
+
+.leftPanel, .rightPanel, .mobileOnlyPanel {
+    position: relative;
+    background-color: #FCFDFF;
+    overflow: hidden;
+    width: 0px;
+    flex-shrink: 0;
+}
+
+#clippingBounds {
+    width: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+}
+
+#interfaceControlFrameLeft {
+    flex: 1;
+    display: flex;
+    font-size: 14px;
+    line-height: 29px;
+    color: #37465e;
+}
+
+#interfaceControlFrameRight {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+@media (max-width: 419px) {
+    .mobileMode #topPanel {
+        display: none;
+    }
+    .mobileMode #mainPanel {
+        -webkit-overflow-scrolling: touch;
+    }
+}
